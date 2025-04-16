@@ -16,9 +16,11 @@
     },
     {
       "tag": "v2",
-      "rename_class": [
-        { "from": "WAI-WorkflowAgent", "to": "WAI_WorkflowAgent" }
-      ]
+      "delete_class": ["WAI-WorkflowAgent"]
+    },
+    {
+      "tag": "v3",
+      "new_sqlite_classes": ["WAI_WorkflowAgent"]
     }
   ],
   "workflows": [
