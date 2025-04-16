@@ -69,6 +69,3 @@ app.get('/workflow-status', async (c) => {
 export default {
   fetch: app.fetch,
 };
-
-// Export Durable Object and Workflow classes for wrangler
-export { WAI_WorkflowAgent, WAI_DemoWorkflow };
