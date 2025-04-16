@@ -4,7 +4,8 @@
   "main": "src/index.ts",
   "dependencies": {
     "hono": "^4",
-    "wrangler": "^4"
+    "wrangler": "^4",
+    "agents": "0.0.60"
   },
   "scripts": {
     "start": "wrangler dev",
