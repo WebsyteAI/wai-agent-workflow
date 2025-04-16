@@ -10,7 +10,16 @@
     ]
   },
   "migrations": [
-    { "tag": "v1", "new_sqlite_classes": ["WAI_WorkflowAgent"] }
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["WAI-WorkflowAgent"]
+    },
+    {
+      "tag": "v2",
+      "rename_class": [
+        { "from": "WAI-WorkflowAgent", "to": "WAI_WorkflowAgent" }
+      ]
+    }
   ],
   "workflows": [
     { "name": "WAI_demo_workflow", "binding": "WAI_DEMO_WORKFLOW", "class_name": "WAI_DemoWorkflow" }
