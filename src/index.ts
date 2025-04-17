@@ -4,7 +4,7 @@ import { WorkflowEntrypoint, WorkflowStep, WorkflowEvent } from 'cloudflare:work
 
 interface Env {
   WorkflowAgent: AgentNamespace<WorkflowAgent>;
-  DEMO_WORKFLOW: Workflow;
+  WORKFLOW_DEMO: Workflow;
 }
 
 type WorkflowParams = {
@@ -12,7 +12,7 @@ type WorkflowParams = {
   task: string;
 };
 
-export class DemoWorkflow extends WorkflowEntrypoint<Env, WorkflowParams> {
+export class WorkflowDemo extends WorkflowEntrypoint<Env, WorkflowParams> {
   async run(event: WorkflowEvent<WorkflowParams>, step: WorkflowStep) {
     // Step 1: Log the start
     const started = await step.do('start', async () => {
@@ -37,7 +37,7 @@ export class WorkflowAgent extends Agent<Env> {
     const url = new URL(request.url);
     if (url.pathname === '/start-workflow' && request.method === 'POST') {
       const { user, task } = await request.json();
-      const instance = await this.env.DEMO_WORKFLOW.create({
+      const instance = await this.env.WORKFLOW_DEMO.create({
         id: crypto.randomUUID(),
         params: { user, task },
       });
@@ -46,7 +46,7 @@ export class WorkflowAgent extends Agent<Env> {
     if (url.pathname === '/workflow-status' && request.method === 'GET') {
       const id = url.searchParams.get('id');
       if (!id) return Response.json({ error: 'Missing id' }, { status: 400 });
-      const instance = await this.env.DEMO_WORKFLOW.get(id);
+      const instance = await this.env.WORKFLOW_DEMO.get(id);
       return Response.json({ status: await instance.status() });
     }
     return Response.json({ error: 'Not found' }, { status: 404 });

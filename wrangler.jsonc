@@ -13,6 +13,6 @@
     { "tag": "v1", "new_sqlite_classes": ["WorkflowAgent"] }
   ],
   "workflows": [
-    { "name": "demo-workflow", "binding": "DEMO_WORKFLOW", "class_name": "DemoWorkflow" }
+    { "name": "workflow-demo", "binding": "WORKFLOW_DEMO", "class_name": "WorkflowDemo" }
   ]
 }
