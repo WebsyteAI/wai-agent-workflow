@@ -6,24 +6,13 @@
   "observability": { "enabled": true },
   "durable_objects": {
     "bindings": [
-      { "name": "WAI_WorkflowAgent", "class_name": "WAI_WorkflowAgent" }
+      { "name": "WorkflowAgent", "class_name": "WorkflowAgent" }
     ]
   },
   "migrations": [
-    {
-      "tag": "v1",
-      "new_sqlite_classes": ["WAI-WorkflowAgent"]
-    },
-    {
-      "tag": "v2",
-      "delete_class": ["WAI-WorkflowAgent"]
-    },
-    {
-      "tag": "v3",
-      "new_sqlite_classes": ["WAI_WorkflowAgent"]
-    }
+    { "tag": "v1", "new_sqlite_classes": ["WorkflowAgent"] }
   ],
   "workflows": [
-    { "name": "WAI_demo_workflow", "binding": "WAI_DEMO_WORKFLOW", "class_name": "WAI_DemoWorkflow" }
+    { "name": "demo-workflow", "binding": "DEMO_WORKFLOW", "class_name": "DemoWorkflow" }
   ]
 }
